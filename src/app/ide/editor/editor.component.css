@@ -1,0 +1,19 @@
+textarea
+{
+    color: ghostwhite;
+    background-color: #303030;
+    border-color: #f0f0f0;
+    width: 100%;
+    height: 95%;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.container-fluid
+{
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}

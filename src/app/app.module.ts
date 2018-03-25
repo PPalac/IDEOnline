@@ -2,7 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 
+import { IdeModule } from './ide/ide.module';
 import { AppComponent } from './app.component';
+import { EditorComponent } from './ide/editor/editor.component';
 
 
 @NgModule({
@@ -10,7 +12,8 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    IdeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

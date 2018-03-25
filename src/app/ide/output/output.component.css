@@ -1,0 +1,20 @@
+textarea
+{
+    color: #20C20E;
+    background-color: #101010;
+    border-color: #f0f0f0;
+    width: 100%;
+    height: 80%;
+    margin-top: 20px;
+    font-size: 14px;
+
+}
+
+.container-fluid
+{
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
