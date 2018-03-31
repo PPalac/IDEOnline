@@ -1,10 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {HttpClientModule, HttpClient, HttpHandler} from '@angular/common/http';
 
 
 import { IdeModule } from './ide/ide.module';
 import { AppComponent } from './app.component';
 import { EditorComponent } from './ide/editor/editor.component';
+import { CommunicationServiceService } from './communication-service.service';
 
 
 @NgModule({
@@ -13,9 +15,10 @@ import { EditorComponent } from './ide/editor/editor.component';
   ],
   imports: [
     BrowserModule,
-    IdeModule
+    IdeModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [CommunicationServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
