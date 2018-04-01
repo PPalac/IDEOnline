@@ -1,11 +1,5 @@
-<div class="container-fluid">
-    <div class="row" style="margin-top:5px; margin-left: 10px;">
-            <button class="btn-primary col-1" (click)="Compile()">Compile</button>
-            <button class="btn-secondary col-1" style="margin-left: 5px;" (click)="Run()">Run</button>
-    </div>
-</div>
 <div class="container-fluid" style="height: 60vh;">
-    <app-editor></app-editor>
+    <app-editor (CompileEvent) = "Compile($event)" (RunEvent) = "Run()"></app-editor>
 </div>
 <div class="container-fluid" style="height: 40vh;">
     <app-output [response] = 'response'></app-output>

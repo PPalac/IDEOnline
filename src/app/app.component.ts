@@ -13,13 +13,11 @@ export class AppComponent {
 
   constructor(private comService: CommunicationServiceService) {}
 
-  Compile() {
-    this.response = 'Kompiluje!';
-    this.comService.Compile(' ').subscribe(response => console.log(response));
+  Compile(code: string) {
+    this.comService.Compile(code).subscribe(response => {console.log(response); this.response = JSON.stringify(response['value']); });
   }
 
   Run() {
-    this.response = 'Uruchamiam!';
-    this.comService.Run().subscribe(response => console.log(response));
+    this.comService.Run().subscribe(response => {console.log(response); this.response = JSON.stringify(response['value']); });
   }
 }
