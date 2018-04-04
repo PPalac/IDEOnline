@@ -4,8 +4,7 @@
             <button class="btn-secondary col-1" style="margin-left: 5px;" (click)="Run()">Run</button>
     </div>
     <div class="row" style="height: 100%">
-        <textarea class="form-control-lg" style="resize: none;">
-            {{code}}
+        <textarea class="form-control-lg" style="resize: none;" [(ngModel)]='code'>
          </textarea>
     </div>
 </div>

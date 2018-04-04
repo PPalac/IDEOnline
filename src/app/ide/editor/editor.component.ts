@@ -8,9 +8,8 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 export class EditorComponent implements OnInit {
 
-  @Output()
-    CompileEvent: EventEmitter<string> = new EventEmitter<string>();
-    RunEvent: EventEmitter<string> = new EventEmitter<string>();
+  @Output() CompileEvent: EventEmitter<string> = new EventEmitter<string>();
+  @Output() RunEvent: EventEmitter<string> = new EventEmitter<string>();
 
   private code: string;
 
@@ -19,9 +18,9 @@ export class EditorComponent implements OnInit {
   ngOnInit() {
     this.code = 'using System; \nnamespace FormGenerator.Converters \
     \n{\
-        \nclass Main\
+        \nclass Klasa\
         \n{\
-            \n\tPublic void Main()\
+            \n\tpublic static void Main(string[] args)\
             \n\t{\
             \n\t}\
         \n}\

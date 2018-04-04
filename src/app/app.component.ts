@@ -9,15 +9,15 @@ import {CommunicationServiceService} from './communication-service.service';
 })
 export class AppComponent {
   title = 'IDEOnline';
-  response: string;
+  response: any;
 
   constructor(private comService: CommunicationServiceService) {}
 
   Compile(code: string) {
-    this.comService.Compile(code).subscribe(response => {console.log(response); this.response = JSON.stringify(response['value']); });
+    this.comService.Compile(code).subscribe(response => {console.log(response); this.response = response; });
   }
 
-  Run() {
-    this.comService.Run().subscribe(response => {console.log(response); this.response = JSON.stringify(response['value']); });
+  Run(param: string) {
+    this.comService.Run().subscribe(response => {console.log(response); this.response = response; });
   }
 }
