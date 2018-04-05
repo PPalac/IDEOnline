@@ -16,14 +16,15 @@ export class EditorComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.code = 'using System; \nnamespace FormGenerator.Converters \
+    this.code = 'using System; \
+    \nnamespace IDEOnline \
     \n{\
-        \nclass Klasa\
-        \n{\
-            \n\tpublic static void Main(string[] args)\
-            \n\t{\
-            \n\t}\
-        \n}\
+        \n\tclass Klasa\
+        \n\t{\
+            \n\t\tpublic static void Main(string[] args)\
+            \n\t\t{\
+            \n\t\t}\
+        \n\t}\
     \n}';
   }
 
