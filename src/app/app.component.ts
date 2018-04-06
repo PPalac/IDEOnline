@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import {CommunicationServiceService} from './communication-service.service';
+import { HubConnection } from '@aspnet/signalr';
 
 @Component({
   selector: 'app-root',
@@ -10,14 +11,33 @@ import {CommunicationServiceService} from './communication-service.service';
 export class AppComponent {
   title = 'IDEOnline';
   response: any;
+  hubConnection: HubConnection;
 
   constructor(private comService: CommunicationServiceService) {}
 
   Compile(code: string) {
-    this.comService.Compile(code).subscribe(response => {console.log(response); this.response = response; });
+    // this.hubConnection.invoke('Input', 'Jakis tam input', document.cookie);
+    // tslint:disable-next-line:max-line-length
+    this.comService.Compile(code).subscribe(response => {console.log(response); this.response = response['compileResult']; document.cookie = response['id']; });
   }
 
   Run(param: string) {
-    this.comService.Run().subscribe(response => {console.log(response); this.response = response; });
+
+    this.response = '';
+
+    this.hubConnection = this.comService.Run();
+
+    this.
+      // tslint:disable-next-line:max-line-length
+      hubConnection.start().then(() => {console.log('Connection sucessful!'); this.hubConnection.invoke('Run', document.cookie ); }).catch(error => console.log(error));
+
+    this.hubConnection.on('Output', (msg: string) => {
+      const text = `${msg}`;
+      this.response += text;
+    });
+
+    this.hubConnection.on('RequestInput', () => {
+      alert('Dawej inputa!');
+    });
   }
 }
