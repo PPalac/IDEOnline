@@ -17,7 +17,7 @@ export class AppComponent {
 
   Compile(code: string) {
     // tslint:disable-next-line:max-line-length
-    this.comService.Compile(code).subscribe(response => {console.log(response); this.response = response['compileResult']; document.cookie = response['id']; });
+    this.comService.Compile(code).subscribe(response => {console.log(response); this.response = response['result']; document.cookie = response['id']; });
   }
 
   Run(param: string) {
