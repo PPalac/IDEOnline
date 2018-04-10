@@ -2,6 +2,7 @@
     <div class="row" style="margin-top:5px;">
             <button class="btn-primary col-1" (click)="Compile()">Compile</button>
             <button class="btn-secondary col-1" style="margin-left: 5px;" (click)="Run()">Run</button>
+            <button class="btn-secondary col-1" style="margin-left: 5px;" (click)="KillProcess()" [style.visibility]="killVisibility ? 'visible' : 'hidden'">Kill</button>
     </div>
     <div class="row" style="height: 95%; margin-top: 10px;">
          <div ace-editor [(text)] = 'code' class="form-control-lg" style="min-height: 200px; width:100%; height: 100%;"></div>

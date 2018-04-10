@@ -16,7 +16,6 @@ export class AppComponent {
   constructor(private comService: CommunicationServiceService) {}
 
   Compile(code: string) {
-    // this.hubConnection.invoke('Input', 'Jakis tam input', document.cookie);
     // tslint:disable-next-line:max-line-length
     this.comService.Compile(code).subscribe(response => {console.log(response); this.response = response['compileResult']; document.cookie = response['id']; });
   }
@@ -37,7 +36,11 @@ export class AppComponent {
     });
 
     this.hubConnection.on('RequestInput', () => {
-      alert('Dawej inputa!');
+      alert('');
     });
+  }
+
+  KillProcess() {
+    this.hubConnection.invoke('Kill', document.cookie);
   }
 }

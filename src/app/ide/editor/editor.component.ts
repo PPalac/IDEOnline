@@ -9,9 +9,11 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 export class EditorComponent implements OnInit {
 
   @Output() CompileEvent: EventEmitter<string> = new EventEmitter<string>();
-  @Output() RunEvent: EventEmitter<string> = new EventEmitter<string>();
+  @Output() RunEvent: EventEmitter<any> = new EventEmitter<string>();
+  @Output() KillEvent: EventEmitter<any> = new EventEmitter();
 
   private code: string;
+  private killVisibility: boolean;
 
   constructor() { }
 
@@ -26,6 +28,8 @@ export class EditorComponent implements OnInit {
             \n\t\t}\
         \n\t}\
     \n}';
+
+    this.killVisibility = false;
   }
 
   Compile() {
@@ -33,6 +37,12 @@ export class EditorComponent implements OnInit {
   }
 
   Run() {
-    this.RunEvent.emit('');
+    this.RunEvent.emit();
+    this.killVisibility = true;
+  }
+
+  KillProcess() {
+    this.KillEvent.emit();
+    this.killVisibility = false;
   }
 }

@@ -1,5 +1,5 @@
 <div class="container-fluid" style="height: 60vh;">
-    <app-editor (CompileEvent) = "Compile($event)" (RunEvent) = "Run($event)"></app-editor>
+    <app-editor (CompileEvent) = "Compile($event)" (RunEvent) = "Run($event)" (KillEvent) = "KillProcess($event)"></app-editor>
 </div>
 <div class="container-fluid" style="height: 35vh;">
     <app-output [response] = 'response'></app-output>
