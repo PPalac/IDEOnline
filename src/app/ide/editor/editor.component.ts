@@ -11,9 +11,11 @@ export class EditorComponent implements OnInit {
   @Output() CompileEvent: EventEmitter<string> = new EventEmitter<string>();
   @Output() RunEvent: EventEmitter<any> = new EventEmitter<string>();
   @Output() KillEvent: EventEmitter<any> = new EventEmitter();
+  @Output() InputEvent: EventEmitter<string> = new EventEmitter<string>();
 
   private code: string;
-  private killVisibility: boolean;
+  private input: string;
+  private processBtnsVisibility: boolean;
 
   constructor() { }
 
@@ -29,7 +31,7 @@ export class EditorComponent implements OnInit {
         \n\t}\
     \n}';
 
-    this.killVisibility = false;
+    this.processBtnsVisibility = false;
   }
 
   Compile() {
@@ -38,11 +40,15 @@ export class EditorComponent implements OnInit {
 
   Run() {
     this.RunEvent.emit();
-    this.killVisibility = true;
+    this.processBtnsVisibility = true;
   }
 
   KillProcess() {
     this.KillEvent.emit();
-    this.killVisibility = false;
+    this.processBtnsVisibility = false;
+  }
+
+  SendInput() {
+    this.InputEvent.emit(this.input);
   }
 }

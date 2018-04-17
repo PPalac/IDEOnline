@@ -34,13 +34,13 @@ export class AppComponent {
       const text = `${msg}`;
       this.response += text;
     });
-
-    this.hubConnection.on('RequestInput', () => {
-      alert('');
-    });
   }
 
   KillProcess() {
     this.hubConnection.invoke('Kill', document.cookie);
+  }
+
+  SendInput(input: string) {
+    this.hubConnection.invoke('Input', input, document.cookie);
   }
 }

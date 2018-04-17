@@ -2,9 +2,13 @@
     <div class="row" style="margin-top:5px;">
             <button class="btn-primary col-1" (click)="Compile()">Compile</button>
             <button class="btn-secondary col-1" style="margin-left: 5px;" (click)="Run()">Run</button>
-            <button class="btn-secondary col-1" style="margin-left: 5px;" (click)="KillProcess()" [style.visibility]="killVisibility ? 'visible' : 'hidden'">Kill</button>
+            <button class="btn-secondary col-1" style="margin-left: 5px;" (click)="KillProcess()" [style.visibility]="processBtnsVisibility ? 'visible' : 'hidden'">Kill</button>
+            <button class="btn-secondary col-1" style="margin-left: 5px;" (click)="SendInput()" [style.visibility]="processBtnsVisibility ? 'visible' : 'hidden'">Send Input</button>
     </div>
-    <div class="row" style="height: 95%; margin-top: 10px;">
-         <div ace-editor [(text)] = 'code' class="form-control-lg" style="min-height: 200px; width:100%; height: 100%;"></div>
+    <div class="row" style="height: 85%; margin-top: 10px;">
+         <div ace-editor [(text)] = 'code' class="form-control-lg" style="min-height: 200px; width:100%; height: 100%;"></div>         
+    </div>
+    <div class="row" style="height: 10%">
+        <textarea class="form-control-lg" [(ngModel)] = 'input' style="width: 100%; height: 100%"></textarea>
     </div>
 </div>
