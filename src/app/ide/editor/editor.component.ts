@@ -18,7 +18,9 @@ export class EditorComponent implements OnInit {
   private processBtnsVisibility: boolean;
 
   constructor() { }
-
+/**
+ * Metoda inicjalizująca
+ */
   ngOnInit() {
     this.code = 'using System; \
     \nnamespace IDEOnline \
